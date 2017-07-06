@@ -61,7 +61,7 @@ export default class HomeMenu extends Component {
         <View style={styles.rowMenuContainer}>
           <View style={styles.menuContainer}>
             <Image source={icStar} />
-          <Text style={styles.textSmall}>Đặc trưng CGV</Text>
+            <Text style={styles.textSmall}>Đặc trưng CGV</Text>
           </View>
           <View style={styles.menuContainer}>
             <Image source={icGift} />
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
   rowContainer: {
     marginTop: 16,
-    padding:5,
+    padding: 5,
     flex: 1,
     backgroundColor: "black",
     alignItems: "center",
@@ -96,10 +96,10 @@ const styles = StyleSheet.create({
   },
   rowMenuContainer: {
     marginTop: 16,
-    padding:5,
+
     flex: 0.5,
     backgroundColor: "black",
-    alignItems: "center",
+
     flexDirection: "row",
     justifyContent: "space-between"
   },
@@ -117,10 +117,11 @@ const styles = StyleSheet.create({
   textNormal: {
     color: "white",
     fontSize: 15,
-    margin:5
+    margin: 5
   },
 
   menuContainer: {
+    flex: 1,
     flexDirection: "column",
     alignItems: "center"
   }

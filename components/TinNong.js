@@ -15,6 +15,14 @@ import { AppRegistry,
 import TinNongListView from './TinNongListView';
 
 export default class TinNong extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  _navigateTinNongDetail(LinkPoster,TieuDe,NoiDung){
+      this.props.navigation.navigate('TinNongDetail',{LinkPoster:LinkPoster,TieuDe:TieuDe,NoiDung:NoiDung})
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -25,7 +33,11 @@ export default class TinNong extends Component {
         </TouchableOpacity>
         </View>
         <View style={{flex:9.5}}>
-        <TinNongListView/>
+        <TinNongListView clickTinNongItem ={(LinkPoster,TieuDe,NoiDung)=>{
+          console.log("aaa"+TieuDe);
+          this.props.navigation.navigate('TinNongDetail',{LinkPoster:LinkPoster,TieuDe:TieuDe,NoiDung:NoiDung})
+
+        }}/>
         </View>
 
       </View>

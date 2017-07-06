@@ -10,8 +10,9 @@ import {
 } from 'react-native';
 import ic_back from '../media/icon/ic_arrow_left_25px.png';
 import ic_menu from '../media/icon/ic_menu_20px.png';
+import ic_share from '../media/icon/ic_share.png';
 
-export default class ToolbarMain extends Component {
+export default class ToolbarPhimDetail extends Component {
   constructor(props){
     super(props);
   }
@@ -27,8 +28,13 @@ export default class ToolbarMain extends Component {
       </TouchableOpacity>
 
       <View style={styles.toobarTitle} >
-      <Text style={{color:'black'}}>Đăng nhập</Text>
+      <Text style={{color:'black'}}>Phim</Text>
       </View>
+      <TouchableOpacity style={styles.iconMenu} onPress={() =>{
+      this.props.navigation.navigate('DrawerOpen')}
+      } >
+        <Image source ={ic_share} />
+      </TouchableOpacity>
       <TouchableOpacity style={styles.iconMenu} onPress={() =>{
       this.props.navigation.navigate('DrawerOpen')}
       } >

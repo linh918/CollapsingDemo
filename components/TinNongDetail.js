@@ -7,13 +7,20 @@
 import React, { Component } from "react";
 import { AppRegistry, StyleSheet, Text, Dimensions, View } from "react-native";
 
-export default class PhimMoi extends Component {
+export default class TinNongDetail extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const { state } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.welcome}>
+          {" "}{this.props.navigation.state.params.TieuDe}
+        </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          {state.params.LinkPoster}
         </Text>
         <Text style={styles.instructions} />
       </View>

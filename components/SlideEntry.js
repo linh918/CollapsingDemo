@@ -13,15 +13,27 @@ import {
 
 export default class SlideEntry extends Component {
   render() {
-    const { LinkPoster, TieuDe } = this.props;
+    const {KhoiChieu,DaoDien,TheLoai,ThoiLuong,KiemDuyet,LinkTrailer, LinkPoster, TieuDe, NoiDung } = this.props;
     return (
       <TouchableOpacity
         style={styles.slideInnerContainer}
         onPress={() => {
-          console.log("click item");
+          this.props.navigation.navigate('PhimMoiDetail',{LinkPoster:LinkPoster,
+                                                          LinkTrailer:LinkTrailer,
+                                                          TieuDe:TieuDe,
+                                                          NoiDung:NoiDung,
+                                                          KiemDuyet:KiemDuyet,
+                                                          DaoDien:DaoDien,
+                                                          TheLoai:TheLoai,
+                                                          ThoiLuong:ThoiLuong,
+                                                          KhoiChieu:KhoiChieu,
+
+                                                        })
+
+
         }}
       >
-        <Image source={{ uri: LinkPoster }} style={styles.imagePoster} />
+        <Image source={{ uri: LinkPoster }} style={styles.imagePoster} resizeMode='contain' />
       </TouchableOpacity>
     );
   }
@@ -35,8 +47,8 @@ function wp(percentage) {
   return Math.round(value);
 }
 
-const slideHeight = viewportHeight * 0.4;
-const slideWidth = wp(75);
+const slideHeight = viewportHeight * 0.3;
+const slideWidth = wp(60);
 const itemHorizontalMargin = wp(2);
 
 export const sliderWidth = viewportWidth;
@@ -49,10 +61,13 @@ const styles = StyleSheet.create({
     width: itemWidth,
     height: slideHeight,
     paddingHorizontal: itemHorizontalMargin,
-    paddingBottom: 18 // needed for shadow
+
+
+
   },
   imagePoster: {
     width: slideWidth,
-    height: viewportHeight * 0.7
+    height: viewportHeight *0.6,
+
   }
 });

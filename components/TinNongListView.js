@@ -9,22 +9,35 @@ import {
   Text,
   Image,
   StyleSheet,
+  TouchableOpacity,
+  TouchableHighlight,
   ListView} from 'react-native';
 
  export default class TinNongListView extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       dataSource:new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2}),
     };
 
   }
+_onCLick(dataSource){
+  console.log("click"+dataSource.TieuDe);
+}
   _renderRow(dataSource){
+
     return(
       <View>
       <View style={styles.container}>
-       <Image source={{uri:dataSource.LinkPoster}} style={styles.image}/>
-       <Text style={styles.title}>{dataSource.TieuDe}</Text>
+      <TouchableHighlight style={{flex:4}} onPress={()=>{this.props.clickTinNongItem(dataSource.LinkPoster,dataSource.TieuDe,dataSource.NoiDung)}}>
+       <Image source={{uri:dataSource.LinkPoster}} style={styles.image}  resizeMode='cover'/>
+       </TouchableHighlight >
+       <Text style={styles.title} onPress={()=>{this.props.clickTinNongItem(dataSource.LinkPoster,dataSource.TieuDe,dataSource.NoiDung)}}>
+       {dataSource.TieuDe}</Text>
+
+
+
+
       </View>
       <View style={{height:1,backgroundColor:'black'}}></View>
       </View>
@@ -68,10 +81,11 @@ const styles=StyleSheet.create({
     flexDirection:'row',
     justifyContent:'center',
       alignItems: "center",
+      backgroundColor:'white',
   },
   image:{
-    flex:4,
-    width:100,
+
+    width:200,
     height:100,
   },
   title:{
