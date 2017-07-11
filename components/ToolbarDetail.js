@@ -12,7 +12,7 @@ import ic_back from '../media/icon/ic_arrow_left_25px.png';
 import ic_menu from '../media/icon/ic_menu_20px.png';
 import ic_share from '../media/icon/ic_share.png';
 
-export default class ToolbarPhimDetail extends Component {
+export default class ToolbarDetail extends Component {
   constructor(props){
     super(props);
   }
@@ -28,7 +28,7 @@ export default class ToolbarPhimDetail extends Component {
       </TouchableOpacity>
 
       <View style={styles.toobarTitle} >
-      <Text style={{color:'black'}}>Phim</Text>
+      <Text style={{color:'black'}}>{this.props.name}</Text>
       </View>
       <TouchableOpacity style={styles.iconMenu} onPress={() =>{
       this.props.navigation.navigate('DrawerOpen')}
@@ -51,7 +51,7 @@ const {height} =Dimensions.get('window');
 
 const styles = StyleSheet.create({
   toolbar:{
-    height:height/10,
+    height:56,
     backgroundColor:'white',
     flexDirection:'row',
     alignItems:'center'

@@ -5,7 +5,16 @@
  */
 
 import React, { Component } from "react";
-import { AppRegistry, StyleSheet, Text, Dimensions, View } from "react-native";
+import { AppRegistry,
+   StyleSheet,
+    Text,
+     Dimensions,
+     View ,
+     ScrollView,
+     Image,
+   } from "react-native";
+
+import ToolbarDetail from  './ToolbarDetail';
 
 export default class TinNongDetail extends Component {
   constructor(props) {
@@ -13,37 +22,45 @@ export default class TinNongDetail extends Component {
   }
 
   render() {
-    const { state } = this.props.navigation;
+   const{state}=this.props.navigation;
+
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          {" "}{this.props.navigation.state.params.TieuDe}
-        </Text>
-        <Text style={styles.instructions}>
-          {state.params.LinkPoster}
-        </Text>
-        <Text style={styles.instructions} />
+        <ToolbarDetail {...this.props} name="Tin mới & Ưu đãi"/>
+        <ScrollView>
+        <Image style={styles.imagePoster}  source={{uri:state.params.LinkPoster}}/>
+        <Text style={styles.textTieuDe}>{state.params.TieuDe}</Text>
+          <Text style={styles.textNoiDung}>{state.params.NoiDung}</Text>
+        </ScrollView>
       </View>
     );
   }
 }
-const { height } = Dimensions.get("window");
+const { height,width } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
-    height: height / 2,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    flex: 1,
+    flexDirection: "column",
+    backgroundColor: "#DAD6CC"
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
+  imagePoster: {
+    backgroundColor:'black',
+     height:height*0.33,
+     width:width,
+     resizeMode:'cover'
   },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
+
+  textNoiDung: {
+    fontSize: 14,
+    color: "#5B4E44",
+    fontWeight:'bold',
+    margin:16
+  },
+  textTieuDe: {
+    fontSize: 16,
+    color: "#5B4E44",
+    fontWeight:'bold',
+      margin:16
+  },
 });

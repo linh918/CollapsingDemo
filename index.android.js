@@ -4,19 +4,14 @@
  * @flow
  */
 
- import React, { Component } from 'react';
- import {
+import React, { Component } from "react";
+import { AppRegistry } from "react-native";
 
-   AppRegistry,
+import App from "./components/App";
+import PhimMoiDetail from "./components/PhimMoiDetail";
+import TinMoiUuDai from "./components/TinMoiUuDai";
+import TinNongDetail from "./components/TinNongDetail";
+import Test from './Test';
 
- } from 'react-native';
-
-
- import App from './components/App';
- import ToolbarPhimDetail from './components/ToolbarPhimDetail';
- import PhimMoiDetail from './components/PhimMoiDetail';
-
- export default class CollapsingDemo extends Component {
-
- }
- AppRegistry.registerComponent('CollapsingDemo', () => App);
+export default class CollapsingDemo extends Component {}
+AppRegistry.registerComponent("CollapsingDemo", () => App);

@@ -9,7 +9,7 @@ import {
   View
 } from 'react-native';
 import ic_back from '../media/icon/ic_arrow_left_25px.png';
-import ic_menu from '../media/icon/ic_menu_20px.png';
+import ic_menu from '../media/icon/ic_menu_25px.png';
 
 export default class ToolbarMain extends Component {
   constructor(props){
@@ -18,7 +18,7 @@ export default class ToolbarMain extends Component {
   render() {
     return (
       <View style={styles.toolbar}>
-      <TouchableOpacity style={styles.iconBack} onPress={() =>{
+      <TouchableOpacity  onPress={() =>{
         this.props.navigation.goBack()}
       } >
           <Image source ={ic_back}
@@ -29,7 +29,7 @@ export default class ToolbarMain extends Component {
       <View style={styles.toobarTitle} >
       <Text style={{color:'black'}}>Đăng nhập</Text>
       </View>
-      <TouchableOpacity style={styles.iconMenu} onPress={() =>{
+      <TouchableOpacity onPress={() =>{
       this.props.navigation.navigate('DrawerOpen')}
       } >
         <Image source ={ic_menu} />
@@ -45,10 +45,11 @@ const {height} =Dimensions.get('window');
 
 const styles = StyleSheet.create({
   toolbar:{
-    height:height/10,
+    height:56,
     backgroundColor:'white',
     flexDirection:'row',
-    alignItems:'center'
+    alignItems:'center',
+    padding:16
 
   },
   iconMenu:{

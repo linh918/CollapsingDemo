@@ -6,18 +6,15 @@ import {
   StyleSheet,
   Text,
   Image,
-  TouchableOpacity,
   View
 } from "react-native";
 
 const HEADER_MAX_HEIGHT = 300;
 const HEADER_MIN_HEIGHT = Platform.OS === "ios" ? 60 : 56;
 const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
-import TinNong from "./TinNong";
-import CarouselPhimMoi from "./CarouselPhimMoi";
-import TinNongViewPager from './TinNongViewPager';
+import ToolbarMain from './components/ToolbarMain'
 
-export default class CGVMainView extends Component {
+export default class Test extends Component {
   constructor(props) {
     super(props);
 
@@ -30,19 +27,15 @@ export default class CGVMainView extends Component {
     const data = Array.from({ length: 30 });
     return (
       <View style={styles.scrollViewContent}>
-      <CarouselPhimMoi {...this.props} style={{ margin: 10 }} />
-
-         <TinNong {...this.props}/>
-
+        {data.map((_, i) =>
+          <View key={i} style={styles.row}>
+            <Text>
+              {i}
+            </Text>
+          </View>
+        )}
       </View>
     );
-  }
-
-  _onMenu(){
-      this.props.navigation.navigate("DrawerOpen");
-  }
-  _onUser(){
-      this.props.navigation.navigate("SignInScreen");
   }
 
   render() {
@@ -116,18 +109,14 @@ export default class CGVMainView extends Component {
             }
 
           ]}
-          source={{uri:"https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/t/r/transformers_980-x-448.jpg"}}
+          source={require("./media/icon/pic2.png")}
         />
        <View style={{flexDirection:'row'}}>
-       <TouchableOpacity onPress={()=> {this._onUser()}}>
-        <Image source={require("../media/icon/ic_user_25px.png")}/>
-       </TouchableOpacity>
-
-
+       <Image source={require("./media/icon/ic_user_25px.png")}/>
+       <Text>Cultulplex</Text>
        </View>
-        <TouchableOpacity onPress={()=> this._onMenu()}>
-       <Image  source={require("../media/icon/ic_menu_25px.png")}/>
-        </TouchableOpacity>
+
+       <Image source={require("./media/icon/ic_menu_25px.png")}/>
        </Animated.View>
 
 
@@ -140,16 +129,12 @@ export default class CGVMainView extends Component {
             }
           ]}
         >
-        <View style={{flexDirection:'row',alignItems:'center'}}>
-        <TouchableOpacity onPress={()=> {this._onUser()}}>
-        <Image source={require("../media/icon/ic_user_25px.png")}/>
-        </TouchableOpacity>
-        <Text style={{ color: "black" }}>Cultulplex</Text>
-        <Text style={{ color: "red" }}>CGV</Text>
+        <View style={{flexDirection:'row'}}>
+        <Image source={require("./media/icon/ic_user_25px.png")}/>
+        <Text>Cultulplex</Text>
         </View>
-          <TouchableOpacity onPress={()=>{ this._onMenu()}}>
-        <Image  source={require("../media/icon/ic_menu_25px.png")}/>
-          </TouchableOpacity>
+
+        <Image source={require("./media/icon/ic_menu_25px.png")}/>
         </Animated.View>
       </View>
     );
@@ -170,8 +155,7 @@ const styles = StyleSheet.create({
     right: 0,
     backgroundColor: "white",
     overflow: "hidden",
-    height: HEADER_MAX_HEIGHT,
-      padding:16
+    height: HEADER_MAX_HEIGHT
   },
 
   header2: {
@@ -183,8 +167,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     height: HEADER_MAX_HEIGHT,
     flexDirection:'row',
-    justifyContent:'space-between',
-    padding:16
+    justifyContent:'space-between'
   },
 
   backgroundImage: {
@@ -208,18 +191,16 @@ const styles = StyleSheet.create({
  },
 
   bar: {
+    backgroundColor: "transparent",
 
+    height: 32,
+    alignItems: "center",
+    justifyContent: "space-between",
     position: "absolute",
     top: 0,
     left: 0,
     right: 0,
-    backgroundColor: "transparent",
-    overflow: "hidden",
-    height: 56,
-    flexDirection:'row',
-    justifyContent:'space-between',
-  alignItems:'center',
-    padding:16
+    flexDirection:'row'
   },
   title: {
     color: "white",

@@ -15,11 +15,12 @@ import {
   ScrollView,
   View
 } from "react-native";
-import ToolbarPhimDetail from "./ToolbarPhimDetail";
+import ToolbarDetail from "./ToolbarDetail";
 import pic from "../media/icon/anh_em_sieu_quay.jpg";
 import ic_play from "../media/icon/ic_play.png";
 import ic_2d from "../media/icon/ic_2d.png";
 import {getThumbnailUrl} from './Utils';
+import TinMoiUuDai from './TinMoiUuDai';
 
 export default class PhimMoiDetail extends Component {
   constructor(props) {
@@ -32,9 +33,9 @@ export default class PhimMoiDetail extends Component {
     let uriThumbnail=getThumbnailUrl(state.params.LinkTrailer)
     return (
       <View style={styles.container}>
-        <ToolbarPhimDetail {...this.props} />
+        <ToolbarDetail {...this.props} name="Phim" />
         <ScrollView>
-          <TouchableOpacity style={styles.childContainer}>
+          <TouchableOpacity >
             <View style={styles.thumbnailContainer}>
               <Image source={{uri:uriThumbnail}} style={styles.thumbnailImage} />
               <Image source={ic_play} style={styles.playIcon} />
@@ -82,6 +83,8 @@ export default class PhimMoiDetail extends Component {
             <Line muc="Đạo diễn" noidung={state.params.DaoDien} />
             <Line muc="Thời lượng" noidung={state.params.ThoiLuong} />
           </View>
+
+          <TinMoiUuDai {...this.props}/>
         </ScrollView>
       </View>
     );

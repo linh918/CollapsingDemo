@@ -47,7 +47,7 @@ const { height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   toolbar: {
-    height: height / 10,
+    height: 56,
     backgroundColor: "white",
     flexDirection: "row",
     alignItems: "center"

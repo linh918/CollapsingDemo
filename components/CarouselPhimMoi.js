@@ -61,13 +61,13 @@ export default class CarouselPhimMoi extends Component {
         <View style={styles.carouselContainter}>
           <View style={styles.rowContainer}>
             <TouchableOpacity style={styles.tabContainer} onPress={()=>{this._onCLickTab(1)}}>
-              <Text style={{fontSize:16, color:(this.state.currentTab==1?'black':'gray')}}>Đang chiếu</Text>
+              <Text style={{fontSize:14, color:(this.state.currentTab==1?'black':'gray')}}>Đang chiếu</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.tabContainer} onPress={()=>{this._onCLickTab(2)}}>
-              <Text style={{fontSize:16, color:(this.state.currentTab==2?'black':'gray')}}>Sắp chiếu</Text>
+              <Text style={{fontSize:14, color:(this.state.currentTab==2?'black':'gray')}}>Sắp chiếu</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.tabContainer} onPress={()=>{this._onCLickTab(3)}}>
-              <Text style={{fontSize:16, color:(this.state.currentTab==3?'black':'gray')}}>Đặc biệt</Text>
+              <Text style={{fontSize:14, color:(this.state.currentTab==3?'black':'gray')}}>Đặc biệt</Text>
             </TouchableOpacity>
           </View>
           <ActivityIndicator />
@@ -79,13 +79,13 @@ export default class CarouselPhimMoi extends Component {
       <View style={styles.carouselContainter}>
         <View style={styles.rowContainer}>
         <TouchableOpacity style={styles.tabContainer} onPress={()=>{this._onCLickTab(1)}}>
-            <Text style={{fontSize:16, color:(this.state.currentTab==1?'black':'gray')}}>Đang chiếu</Text>
+            <Text style={{fontSize:14, color:(this.state.currentTab==1?'black':'gray')}}>Đang chiếu</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.tabContainer} onPress={()=>{this._onCLickTab(2)}}>
-            <Text style={{fontSize:16, color:(this.state.currentTab==2?'black':'gray')}}>Sắp chiếu</Text>
+            <Text style={{fontSize:14, color:(this.state.currentTab==2?'black':'gray')}}>Sắp chiếu</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.tabContainer} onPress={()=>{this._onCLickTab(3)}}>
-            <Text style={{fontSize:16, color:(this.state.currentTab==3?'black':'gray')}}>Đặc biệt</Text>
+            <Text style={{fontSize:14, color:(this.state.currentTab==3?'black':'gray')}}>Đặc biệt</Text>
           </TouchableOpacity>
         </View>
 
@@ -120,7 +120,7 @@ export default class CarouselPhimMoi extends Component {
       </View>
     );
   }
-  
+
   _onSnapToItem(index){
     let firtItem=data[index];
     this.setState({
@@ -178,7 +178,8 @@ const styles = StyleSheet.create({
 rowContainer: {
     flexDirection: "row",
     height: viewportHeight / 15,
-    backgroundColor: "white"
+    backgroundColor: "white",
+    alignItems:'center'
   },
   tabContainer: {
     flex: 1,
